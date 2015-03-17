@@ -1,7 +1,0 @@
-hello,
-
-this is a test.
-
-Again, add a little.
-
-Chao
