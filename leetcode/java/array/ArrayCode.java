@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class ArrayCode{
 
 public static void main(String[]args){
@@ -8,6 +10,9 @@ public static void main(String[]args){
        System.out.println(removeDuplicate2(test));
        System.out.println(searchInRotatedSortedArray(test2,2));
     System.out.println(searchInRotatedSortedArray2(test,1));
+    
+    int[] test3 = {100, 4, 200, 1, 3, 2};
+    System.out.println(findLongestConsecutiveSequence(test3));
 
 }
     /**
@@ -136,5 +141,45 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         return -1;
     }
 
+    /**
+     There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log(m + n)).
+     */
+    public static double medianOfTwoSortedArray(int[] arr1, int[] arr2){
+        return 0.0;
+    }
+    
+    /**
+     Given an unsorted array of integers, find the length of the longest consecutive elements sequence.For example, Given [100, 4, 200, 1, 3, 2], The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4. Your algorithm should run in O(n) complexity.
+     */
+    public static int findLongestConsecutiveSequence(int[] arr){
+        if(arr ==null || arr.length ==0) return 0;
+        if(arr.length ==1) return 1;
+        //first, save all element
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i = 0; i < arr.length; i ++){
+            map.put(arr[i], 1);
+        }
+        
+        for(int i : map.keySet()){
+            if(map.get(i) != -1){
+                //eligible
+                int local = i;
+                int count = map.get(i);
+                while(map.keySet().contains(local+1) && map.get(local+1)!= -1){
+                    count += map.get(local+1);
+                    map.put(local+1, -1);
+                    local++;
+                }
+                map.put(i, count);
+            }
+        }
+        int max = 1;
+        for(int i : map.keySet()){
+            if(map.get(i) > max){
+                max = map.get(i);
+            }
+        }
+        return max;
+    }
 
 }
