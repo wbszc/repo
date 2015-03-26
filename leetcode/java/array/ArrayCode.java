@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Arrays;
 
 public class ArrayCode{
 
@@ -213,10 +214,19 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         int tar = 0;
         Collections.sort(list);
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-        for(int i = 0 ; i  < list.size(); i ++){
+        for(int i = 0 ; i  < list.size()-2; i ++){
+            if(i> 0 && list.get(i) == list.get(i-1)) continue;
             int j = i+1;
             int k = list.size()-1;
             while(j < k){
+                if(j> i && list.get(j)== list.get(j-1)){
+                    j++;
+                    continue;
+                }
+                if(k< list.size() && list.get(k) == list.get(k+1)){
+                    k--;
+                    continue;
+                }
                 if(list.get(i) + list.get(j) + list.get(k) ==0){
                     ArrayList<Integer> l = new ArrayList<Integer>();
                     l.add(list.get(i));
@@ -228,9 +238,63 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
                 }else{
                     k--;
                 }
-                continue;
             }
         }
         return res;
+    }
+    
+    /**
+     Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.For example, given array S = {-1 2 1 -4}, and target = 1. The sum that is closest to the target is 2. (-1+2+1=2).
+     */
+    public static ArrayList<ArrayList<Integer>> findThreeSumClosest(int[] num, int tar){
+        if(num == null || num.length ==0 ) return null;
+        ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+        Arrays.sort(num);
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        int min = Integer.MAX_VALUE;
+        for(int i = 0; i < num.length; i ++){
+            if(i > 0 && num[i]== num[i-1])continue;
+            int j = i+1;
+            int k = num.length-1;
+            while(j < k){
+                if(j > i+1 && num[j] == num[j-1]){
+                    j++;
+                    continue;
+                }
+                if(k < num.length-1 && num[k] == num[k+1]){
+                    k--;
+                    continue;
+                }
+                if(tar - (num[i] + num[j] + num[k]) ==0){
+                    //found
+                    temp.clear();
+                    temp.add(num[i]);
+                    temp.add(num[j]);
+                    temp.add(num[k]);
+                    list.add(temp);
+                    return list;
+                }else if(tar - (num[i] + num[j] + num[k]) < 0){
+                    if(Math.abs(tar - (num[i] + num[j] + num[k])) < min){
+                        //found one;
+                        temp.clear();
+                        temp.add(num[i]);
+                        temp.add(num[j]);
+                        temp.add(num[k]);
+                    }
+                    j++;
+                }else{
+                    if(Math.abs(tar - (num[i] + num[j] + num[k])) < min){
+                    //found one;
+                        temp.clear();
+                        temp.add(num[i]);
+                        temp.add(num[j]);
+                        temp.add(num[k]);
+                    }
+                    k--;
+                }
+            }
+        }
+        list.add(temp);
+        return list;
     }
 }
