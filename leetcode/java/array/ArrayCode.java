@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayCode{
 
@@ -206,8 +208,29 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
      Given an array S of n integers, are there elements a,b,c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:• Elements in a triplet (a, b, c) must be in non-descending order. (ie, a ≤ b ≤ c) • The solution set must not contain duplicate triplets.
      For example, given array S = {-1 0 1 2 -1 -4}. A solution set is: (-1, 0, 1) (-1, -1, 2)
      */
-    public static ArrayList<ArrayList<Integer>> findThreeSum(int[] arr, int tar){
-        
-        return null;
+    public static ArrayList<ArrayList<Integer>> findThreeSum(ArrayList<Integer> list){
+        if(list == null || list.size() <3) return null;
+        int tar = 0;
+        Collections.sort(list);
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        for(int i = 0 ; i  < list.size(); i ++){
+            int j = i+1;
+            int k = list.size()-1;
+            while(j < k){
+                if(list.get(i) + list.get(j) + list.get(k) ==0){
+                    ArrayList<Integer> l = new ArrayList<Integer>();
+                    l.add(list.get(i));
+                    l.add(list.get(j));
+                    l.add(list.get(k));
+                }else if(list.get(i) + list.get(j) + list.get(k) <0){
+                    //increment j
+                    j++;
+                }else{
+                    k--;
+                }
+                continue;
+            }
+        }
+        return res;
     }
 }
