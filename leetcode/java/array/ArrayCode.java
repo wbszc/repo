@@ -297,4 +297,45 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         list.add(temp);
         return list;
     }
+    
+    /**
+     Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.Note:• Elements in a quadruplet (a, b, c, d) must be in non-descending order. (ie, a ≤ b ≤ c ≤ d) • The solution set must not contain duplicate quadruplets. For example, given array S = {1 0 -1 0 -2 2}, and target = 0.A solution set is:(-1,  0, 0, 1) (-2, -1, 1, 2) (-2,  0, 0, 2)
+     */
+    public static ArrayList<ArrayList<Integer>> findFourSum(ArrayList<Integer> list, int tar){
+        if(list == null || list.size() <4) return null;
+        Collections.sort(list);
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        for(int i = 0 ; i  < list.size()-3; i ++){
+            if(i> 0 && list.get(i) == list.get(i-1)) continue;
+            for(int x = i+1; x < list.size()-2 ; x++){
+                if(x> i+1 && list.get(x) == list.get(x-1)) continue;
+                int j = x+1;
+                int k = list.size()-1;
+                while(j < k){
+                    if(j> i && list.get(j)== list.get(j-1)){
+                        j++;
+                        continue;
+                    }
+                    if(k< list.size() && list.get(k) == list.get(k+1)){
+                        k--;
+                        continue;
+                    }
+                    if(list.get(i) + list.get(x) + list.get(j) + list.get(k) ==0){
+                        ArrayList<Integer> l = new ArrayList<Integer>();
+                        l.add(list.get(i));
+                        l.add(list.get(x));
+                        l.add(list.get(j));
+                        l.add(list.get(k));
+                    }else if(list.get(i) + list.get(x) + list.get(j) + list.get(k) <0){
+                        //increment j
+                        j++;
+                    }else{
+                        k--;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
 }
