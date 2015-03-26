@@ -12,10 +12,10 @@ public static void main(String[]args){
        System.out.println(removeDuplicate(test));
        System.out.println(removeDuplicate2(test));
        System.out.println(searchInRotatedSortedArray(test2,2));
-    System.out.println(searchInRotatedSortedArray2(test,1));
+        System.out.println(searchInRotatedSortedArray2(test,1));
     
-    int[] test3 = {100, 4, 200, 1, 3, 2};
-    System.out.println(findLongestConsecutiveSequence(test3));
+        int[] test3 = {100, 4, 200, 1, 3, 2};
+        System.out.println(findLongestConsecutiveSequence(test3));
 
 }
     /**
@@ -337,5 +337,23 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         }
         return res;
     }
-
+    
+    /**
+     Given an array and a value, remove all instances of that value in place and return the new length. The order of elements can be changed. It doesn’t matter what you leave beyond the new length.
+     */
+    public static int removeElement(int[] num, int tar){
+        int len = 0;
+        int mark = 0;
+        for(int i = 0; i < num.length; i ++){
+            if(num[i] == tar){
+                //skip
+            }else{
+                num[i] = num[mark];
+                mark++;
+            }
+        }
+        return mark;
+    }
+    
+    
 }
