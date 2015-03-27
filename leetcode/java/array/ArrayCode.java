@@ -355,5 +355,36 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         return mark;
     }
     
-    
+    /**
+     Implement next permutation, which rearranges numbers into the lexicographically next greater permu- tation of numbers.If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascend- ing order).The replacement must be in-place, do not allocate extra memory.Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.
+     1,2,3 → 1,3,2
+     3,2,1 → 1,2,3
+     1,1,5 → 1,5,1
+     */
+    public ArrayList<Integer> nextPermutation(ArrayList<Integer> list){
+        //from end to start check, find first number pair that latter larger than former
+        int i = list.size()-1;
+        int j = i-1;
+        boolean foundIt = false;
+        while(j >= 0 && !foundIt){
+            if(list.get(j) < list.get(i)){
+                //find it
+                break;
+            }
+            i--;
+        }
+        if(i <0 ){
+            reverseIt(list);
+            return list;
+        }else{
+            //swap these two
+            int temp = list.get(i);
+            list.set(i,list.get(j));
+            list.set(j,temp);
+            //rearrange the rest
+            
+        }
+        
+        return null;
+    }
 }
