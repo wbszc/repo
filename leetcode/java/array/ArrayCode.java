@@ -361,30 +361,32 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
      3,2,1 → 1,2,3
      1,1,5 → 1,5,1
      */
-    public ArrayList<Integer> nextPermutation(ArrayList<Integer> list){
+    public void nextPermutation(int[] num){
         //from end to start check, find first number pair that latter larger than former
-        int i = list.size()-1;
-        int j = i-1;
-        boolean foundIt = false;
-        while(j >= 0 && !foundIt){
-            if(list.get(j) < list.get(i)){
-                //find it
-                break;
-            }
+        if(num == null || num.length ==0) return;
+        int i = list.size()-2;
+        while(i >= 0 && num[i] >= num[i+1]){
             i--;
         }
-        if(i <0 ){
-            reverseIt(list);
-            return list;
-        }else{
-            //swap these two
-            int temp = list.get(i);
-            list.set(i,list.get(j));
-            list.set(j,temp);
-            //rearrange the rest
-            
+        if(i >= 0){
+            int j = i+1;
+            while(j < num.length && num[j] > num[i]){
+                j++;
+            }
+            j--;
+            int temp = num[i];
+            num[i] = num[j];
+            num[j] = temp;
         }
-        
-        return null;
+        int l = index;
+        int r = num.length-1;
+        while(l < r){
+            int temp = num[l];
+            num[l] = num[r];
+            num[r] = temp;
+            l++;
+            r--;
+        }
+        return;
     }
 }
