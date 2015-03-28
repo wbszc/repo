@@ -364,7 +364,7 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
     public void nextPermutation(int[] num){
         //from end to start check, find first number pair that latter larger than former
         if(num == null || num.length ==0) return;
-        int i = list.size()-2;
+        int i = num.length-2;
         while(i >= 0 && num[i] >= num[i+1]){
             i--;
         }
@@ -378,7 +378,7 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
             num[i] = num[j];
             num[j] = temp;
         }
-        int l = index;
+        int l = i+1;
         int r = num.length-1;
         while(l < r){
             int temp = num[l];
