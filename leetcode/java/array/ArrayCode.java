@@ -396,4 +396,12 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
     public void findSpecialPermutations(){
         
     }
+    
+    /**
+     Given a number represented as an array of digits, plus one to the number.
+     */
+    public static int[] addOne(int[] arr){
+        
+        
+    }
 }
