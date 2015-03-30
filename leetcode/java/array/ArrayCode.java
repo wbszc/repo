@@ -418,7 +418,26 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
      Given a number represented as an array of digits, plus one to the number.
      */
     public static int[] addOne(int[] arr){
-        return null;
-        
+        //add one to the end
+        int carry = 0;
+        arr[arr.length-1] +=1;
+        for(int i =  arr.length -1; i >=0 ; i --){
+            int local = arr[i] + carry;
+            if(local > 9){
+                local -= 10;
+                carry=1;
+            }else{
+                carry = 0;
+            }
+        }
+        if(carry == 1){
+            int[] newArr = new int[arr.length+1];
+            newArr[0] = 1;
+            for(int i = 1; i < newArr.length ; i ++){
+                newArr[i] = arr[i-1];
+            }
+            return newArr;
+        }
+        return arr;
     }
 }
