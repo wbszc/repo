@@ -431,7 +431,7 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         }//now fact has the total number of n
         for(int i = 1; i <= n; i++){
             list.add(i);
-        }//now list contains all the rounds of the numbers
+        }//now list contains all element of n
         int round = n-1;
         while(round >= 0){
             int index = k/fact;
@@ -444,6 +444,54 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
             round --;
         }
         return sb.toString();
+    }
+    
+    public static boolean validateSudoku(char[][]board){
+        if(board == null || board.length != 9 || board[0].length != 9) return false;
+        //check row
+        for(int i = 0; i < 9; i ++){
+            boolean[] local = new boolean[9];
+            for(int j = 0; j < 9; j ++){
+                if(board[i][j] != '.'){
+                    if(local[(int)(board[i][j]-'1')]){
+                        return false;
+                    }
+                }
+                local[(int)(board[i][j] - '1')] = true;
+            }
+        }
+        
+        //check column
+        for(int i = 0; i < 9; i ++){
+            boolean[] local = new boolean[9];
+            for(int j = 0; j < 9; j ++){
+                if(board[i][j] != '.'){
+                    if(local[(int)(board[j][i]-'1')]){
+                        return false;
+                    }
+                }
+                local[(int)(board[j][i] - '1')] = true;
+            }
+        }
+        
+        //check box
+        for(int i = 0; i < 9; i ++){
+            boolean[] local = new boolean[9];
+            for(int j = i/3*3 ; j < i/3*3+3; j ++){
+                for(int k = i %3*3; k < i %3*3+3; k ++){
+                    if(board[j][k] != '.'){
+                        if(local[(int)(board[j][k] - '1')]){
+                                 return false;
+                        }
+                        local[(int)(board[j][k] - '1')] = true;
+                    }
+                }
+            }
+            
+            
+            
+        }
+        return false;
     }
     
     /**
