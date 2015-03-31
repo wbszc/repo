@@ -446,6 +446,9 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
         return sb.toString();
     }
     
+    /**
+     Determine if a Sudoku is valid.The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
+     */
     public static boolean validateSudoku(char[][]board){
         if(board == null || board.length != 9 || board[0].length != 9) return false;
         //check row
@@ -492,6 +495,13 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
             
         }
         return false;
+    }
+    
+    /**
+     Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining. For example, Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
+     */
+    public int trapRainWater(int[] arr){
+        return 0;
     }
     
     /**
