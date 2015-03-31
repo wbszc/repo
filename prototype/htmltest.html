@@ -4,11 +4,18 @@
 <head>
 <title>title</title>
 <meta charset="UTF-8">
+<style>
+  body {background-color:lightgray}
+  h1   {color:blue}
+</style>
+<link rel= "stylesheet" href = "style.css">
+
+
 </head>
 <script src = prototype.js></script>
 <body style = "background-color: lightgrey">
 <h1> heading</h1>
-<p title = "About paragraph and this is it 'wow!'">p<p>
+<p id = "p01" title = "About paragraph and this is it 'wow!'">p<p>
 <hr>
 <a href = "http://www.google.com" >google</a>
 <br/>
@@ -25,7 +32,7 @@ a poem.
 </pre>
 
 <br >
-<p style="font-family: verdana" ><b>
+<p class = "error" ><b>
 this is verdana chars
 </b>
 </p>
@@ -44,6 +51,78 @@ this is verdana chars
 <h2>HTML <small>Small</small> Formatting</h2>
 
 <h2>HTML <mark>Marked</mark> Formatting</h2>
+
+<p>My favorite color is <del>blue</del> red.</p>
+
+<p> inserted huh? <ins>color</ins> red? </p>
+<p>subscript is <sub>subscript</sub></p>
+<p>same is <sup>superscript</sup></p>
+
+<p>the goal is <q>to do it this way</q> </p>
+
+<p>here is a multiline quote: </p>
+<blockquote cite = "http://www.google.com" >
+this is google for sure
+</blockquote>
+
+<p>The <abbr title = "world health organ">WHO </abbr>was found at 1948.</p>
+<address>
+Chao<br>
+2682 Taffy Dr<br>
+San Jose<br>
+CA 95148<br>
+</address>
+
+<p><cit>the scream</cite> is a file</p> 
+<p><bdo dir = "rtl" >from right to left</bdo></p>
+<p><kbd>File | Open... </kbd></p>
+
+<samp>
+demo.example.com login: Apr 12 09:10:17
+Linux 2.6.10-grsec+gg3+e+fhs6b+nfs+gr0501+++p3+c4a+gr2b-reslog-v6.189
+</samp>
+
+<p>Coding Example:</p>
+
+<code>
+<pre>
+var person = {
+    firstName:"John",
+    lastName:"Doe",
+    age:50,
+    eyeColor:"blue"
+}
+</pre>
+</code>
+
+<p> this is from Einstein: </p>
+<p><var> E = mc<sup>2</sup></var></p>
+<!-- comment -->
+
+<!--[if IE8]> 
+....some how .. 
+<![endif]-->
+
+
+<img src="testfun.jpg" alt="Test" usemap="#testmap" style="width:145px;height:126px">
+
+<map name="testmap">
+  <area shape="rect" coords="0,0,82,126" alt="Sun" href="test.html">
+  <area shape="circle" coords="90,58,3" alt="Mercury" href="test.html">
+  <area shape="circle" coords="124,58,8" alt="Venus" href="test.html">
+</map>
+
+<table id = "table1" style = "width:100%">
+<tr>
+<th>number1</th>
+<th>number2</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<table>
 
 </body>
 </html>

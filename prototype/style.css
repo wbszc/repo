@@ -1,0 +1,28 @@
+<!-- css -->
+p#p01{
+	color: red;
+	font-family: courier;
+	font-size: 160%;
+	border: 1px solid black;
+	padding: 10px;
+	margin: 20px;
+}
+p.error{
+	color:red;
+}
+a:link    {color:#000000; background-color:transparent; text-decoration:none}
+a:visited {color:#000000; background-color:transparent; text-decoration:none}
+a:hover   {color:#ff0000; background-color:transparent; text-decoration:underline}
+a:active  {color:#ff0000; background-color:transparent; text-decoration:underline}
+
+table,th,td{
+border: 1px solid black;
+border-collapse:collapse;
+}
+th,td{
+	padding: 15px;
+}
+
+th{
+text-aligh: left;
+}
