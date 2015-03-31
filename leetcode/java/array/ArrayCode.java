@@ -148,24 +148,34 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
      There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log(m + n)).
      */
     public static double medianOfTwoSortedArray(int[] arr1, int[] arr2){
-        if(arr1 == null || arr2 == null) return arr1 == null? getIt(arr2) : getIt(arr1);
-        if((arr1.length + arr2.length) %2 == 1) {
-            return findK(arr1, 0, arr1.length-1, arr2, 0, arr2.length-1, (arr1.length + arr2.length)/2);
-        }else{
-            return (findK(arr1, 0, arr1.length-1, arr2, 0, arr2.length-1, (arr1.length + arr2.length)/2-1) + findK(arr1, 0, arr1.length-1, arr2, 0, arr2.length-1, (arr1.length + arr2.length)/2))/2;
-        }
-    }
-    
-    public static double getIt(int[] arr){
-        if(arr == null) return 0.0;
-        else {
-            if(arr.length %2 == 1) return arr[arr.length/2];
-            else return (arr[arr.length/2-1] + arr[arr.length/2])/2;
-        }
+        int m = arr1.length;
+        int n = arr2.length;
+        if((m+n) %2 != 0) return (double) findK(arr1, 0, m-1, arr2, 0, n-1, (m+n)/2);
+        else return 0.5*(findK(arr1, 0, m-1, arr2, 0, n-1, (m+n)/2) +
+                         findK(arr1, 0, m-1, arr2, 0, n-1, (m+n)/2-1));
     }
     
     public static double findK(int[] arrA, int aStart, int aEnd, int[] arrB, int bStart, int bEnd, int k){
-        return 0.0;
+        int aLen =aEnd - aStart +1;
+        int bLen =bEnd - bStart +1;
+        if(aLen ==0) return arrB[bStart +k];
+        if(bLen == 0) return arrA[aStart+k];
+        if(k==0) return arrA[aStart] < arrB[bStart]? arrA[aStart] : arrB[bStart];
+        int aMid = aLen*k/(aLen+bLen); // a's part for k
+        int bMid = k - aMid - 1; //b's part for k
+        aMid = aMid + aStart;
+        bMid = bMid + bStart;
+        
+        if(arrA[aMid] > arrB[aMid]){
+            k = k - (bMid - bStart +1);
+            aEnd = aMid;
+            bStart = bMid+1;
+        }else{
+            k = k -(aMid - aStart +1);
+            bEnd = bMid;
+            aStart = aMid+1;
+        }
+        return findK(arrA, aStart, aEnd, arrB, bStart, bEnd, k);
     }
     
     /**
