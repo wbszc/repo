@@ -505,6 +505,13 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e.
     }
     
     /**
+     You are given an n × n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise). Follow up: Could you do this in-place?
+     */
+    public void rotateImage(int[][] arr){
+        return;
+    }
+    
+    /**
      Given a number represented as an array of digits, plus one to the number.
      */
     public static int[] addOne(int[] arr){
