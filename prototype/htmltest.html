@@ -1,6 +1,6 @@
 <!Doctype html>
 
-<html>
+<html lang="en-US">
 <head>
 <title>title</title>
 <meta charset="UTF-8">
@@ -13,6 +13,11 @@
 
 </head>
 <script src = prototype.js></script>
+<script>
+document.getElementById("demo").innerHTML = "hi there";
+</script>
+<noscript>sorry, your browser is not supported
+</noscript>
 <body style = "background-color: lightgrey">
 <h1> heading</h1>
 <p id = "p01" title = "About paragraph and this is it 'wow!'">p<p>
@@ -66,7 +71,6 @@ this is google for sure
 </blockquote>
 
 <p>The <abbr title = "world health organ">WHO </abbr>was found at 1948.</p>
-<address>
 Chao<br>
 2682 Taffy Dr<br>
 San Jose<br>
@@ -113,16 +117,94 @@ var person = {
 </map>
 
 <table id = "table1" style = "width:100%">
+<caption>test</caption>
 <tr>
 <th>number1</th>
-<th>number2</th>
+<th colspan="2">number2</th>
 </tr>
 
 <tr>
 <td>1</td>
 <td>2</td>
+<td>3</td>
 </tr>
+
+<tr>
+<th rowspan="2">tel</th>
+<td> 444</td>
+</tr>
+<tr>
+<td>hello
+</td>
+</tr>
+
+  <tr>
+    <th>Name:</th>
+    <td>Bill Gates</td>
+  </tr>
+  <tr>
+    <th rowspan="2">Telephone:</th>
+    <td>555 77 854</td>
+  </tr>
+  <tr>
+    <td>555 77 855</td>
+  </tr>
 <table>
+
+<ul style="list-style-type:disc">
+<li>1</li>
+<ul>
+
+<ol type="A">
+<li>2</li>
+</ol>
+
+<dl>
+<dt>coffee</dt>
+<dd>-black coffee<dd>
+<dt>milk</dt>
+<dd>-white drink<dd>
+<dl>
+
+<ul id="menu">
+<li><a href="http://www.google.com">html</li>
+<li>css</li>
+</ul>
+
+<form action="action_page.php" method="GET" target="_blank" accept-charset="UTF-8"
+enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+First name: <br>
+<input type="text" name="first name">
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+
+
+<textarea name="message" rows="10" cols="30">
+The cat was playing in the garden.
+</textarea>
+
+
+
+<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+
+<input list="browsers">
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist> 
+
+Username: <input type="text" name="user">
+Encryption: <keygen name="security">
+<input type="submit">
+
+</form>
 
 </body>
 </html>
