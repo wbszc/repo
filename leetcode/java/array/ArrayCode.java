@@ -6,7 +6,6 @@ import java.util.Arrays;
 public class ArrayCode{
 
 public static void main(String[]args){
-       System.out.println("hello world");
        int[] test = {0,1,1,2,2};
        int[]test2 = {1,2,3,4,5,0,-1};
        System.out.println(removeDuplicate(test));
